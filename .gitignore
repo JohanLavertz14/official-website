@@ -32,3 +32,6 @@ coverage/
 # vercel / monorepo
 .vercel/
 .turbo/
+
+*.shgs
+*.ktl
