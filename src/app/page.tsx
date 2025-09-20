@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { Mail, Instagram, Linkedin, Download, ArrowRight, ExternalLink, MapPin, Briefcase, GraduationCap, Award, Phone } from "lucide-react";
 import { motion } from "framer-motion";
@@ -11,6 +11,19 @@ import { profile, experience, projects, education, certs, nav } from "../data/si
 import ThemeToggle from "../components/ThemeToggle";
 
 export default function Page() {
+  useEffect(() => {
+    try {
+      const saved = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+      const prefersDark = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (saved === "dark" || (!saved && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } catch {
+      // fail quietly
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-white text-gray-800 dark:bg-zinc-950 dark:text-zinc-100">
       <header className="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-zinc-950/60 border-b border-gray-100 dark:border-white/10">
@@ -20,7 +33,7 @@ export default function Page() {
           </a>
           <ul className="hidden md:flex items-center gap-6 text-sm">
             {nav.map((n) => (
-              <li key={n.id}><a className="hover:text-gray-900 dark:hover:text-white" href={`#${n.id}`}>{n.label}</a></li>
+              <li key={n.id}><a className="hover:text-orange-600 dark:hover:text-orange-300" href={`#${n.id}`}>{n.label}</a></li>
             ))}
           </ul>
           <div className="flex items-center gap-2">
@@ -150,7 +163,11 @@ export default function Page() {
           </Card>
           <Card className="p-6">
             <h3 className="font-semibold">Computer Science</h3>
-            <div className="mt-3 flex flex-wrap gap-2">{[...profile.skills.computer, ...profile.skills.tools].map((s) => (<Tag key={s}>{s}</Tag>))}</div>
+            <div className="mt-3 flex flex-wrap gap-2">{profile.skills.computer.map((s) => (<Tag key={s}>{s}</Tag>))}</div>
+          </Card>
+          <Card className="p-6">
+            <h3 className="font-semibold">Tools</h3>
+            <div className="mt-3 flex flex-wrap gap-2">{profile.skills.tools.map((s) => (<Tag key={s}>{s}</Tag>))}</div>
           </Card>
         </div>
       </Section>
@@ -201,7 +218,7 @@ export default function Page() {
               <input required type="email" placeholder="Email" className="rounded-xl border border-gray-200 px-4 py-2 outline-none focus:ring-2 focus:ring-orange-300 dark:border-white/10 dark:bg-zinc-900" />
               <textarea required placeholder="Message" rows={4} className="rounded-xl border border-gray-200 px-4 py-2 outline-none focus:ring-2 focus:ring-orange-300 dark:border-white/10 dark:bg-zinc-900" />
               <button className="rounded-xl bg-orange-600 text-white px-4 py-2 hover:bg-orange-700">Send</button>
-              <p className="text-xs text-gray-500 dark:text-zinc-400">* This demo form is static. Connect to Formspree/Netlify to receive messages.</p>
+              <p className="text-xs text-gray-500 dark:text-zinc-400"></p>
             </form>
           </div>
         </Card>

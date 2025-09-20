@@ -2,7 +2,10 @@ import React from "react";
 
 export default function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50/60 px-3 py-1 text-xs font-medium text-orange-700">
+    <span
+      className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50/60 px-3 py-1 text-xs font-medium text-orange-700
+        dark:border-orange-900 dark:bg-orange-950/50 dark:text-orange-300"
+    >
       {children}
     </span>
   );
