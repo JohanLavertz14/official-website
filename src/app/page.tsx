@@ -62,9 +62,14 @@ export default function Page() {
                 </div>
               </div>
               <div className="md:flex-1 flex justify-center">
-                <div className="shrink-0 md:h-60 md:w-60 rounded-full bg-gradient-to-br from-orange-500 to-orange-300 overflow-hidden dark:from-orange-600 dark:to-orange-400">
-                  <img src="/headshot.jpg" alt="Vincent" className="h-full w-full object-cover" />
-                </div>
+                <Card className="p-6 flex flex-col items-center text-center max-w-xs">
+                  <div className="h-48 w-48 rounded-full bg-gradient-to-br from-orange-500 to-orange-300 overflow-hidden dark:from-orange-600 dark:to-orange-400">
+                    <img src="/headshot.jpg" alt="Vincent" className="h-full w-full object-cover" />
+                  </div>
+                  <p className="mt-4 text-sm italic text-gray-600 dark:text-zinc-400">
+                    "I am someone who shaped by fire and driven by a dream." - Vincent
+                  </p>
+                </Card>
               </div>
             </div>
           </motion.div>
