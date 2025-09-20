@@ -122,7 +122,7 @@ export default function Page() {
               <div className="mt-3 flex flex-wrap gap-2">{p.tags.map((t) => (<Tag key={t}>{t}</Tag>))}</div>
               <div className="mt-4 flex items-center gap-3">
                 {p.links.map((l, idx) => (
-                  <a key={idx} href={l.href} className="inline-flex items-center gap-1 text-orange-700 dark:text-orange-300 hover:underline">
+                  <a key={idx} href={l.url} className="inline-flex items-center gap-1 text-orange-700 dark:text-orange-300 hover:underline">
                     {l.label} <ExternalLink className="h-4 w-4" />
                   </a>
                 ))}
