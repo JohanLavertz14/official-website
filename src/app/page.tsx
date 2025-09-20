@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { Mail, Instagram, Linkedin, Download, ArrowRight, ExternalLink, MapPin, Briefcase, GraduationCap, Award, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import Section from "../components/Section";
@@ -15,7 +16,7 @@ export default function Page() {
       <header className="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-zinc-950/60 border-b border-gray-100 dark:border-white/10">
         <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <a href="#home" className="flex items-center">
-            <img src="/logo.jpg" alt="Logo" className="h-8 w-8 rounded-full object-cover" />
+            <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="h-8 w-8 rounded-full object-cover" />
           </a>
           <ul className="hidden md:flex items-center gap-6 text-sm">
             {nav.map((n) => (
@@ -63,11 +64,11 @@ export default function Page() {
               </div>
               <div className="md:flex-1 flex justify-center">
                 <Card className="p-6 flex flex-col items-center text-center max-w-xs">
-                  <div className="h-48 w-48 rounded-full bg-gradient-to-br from-orange-500 to-orange-300 overflow-hidden dark:from-orange-600 dark:to-orange-400">
-                    <img src="/headshot.jpg" alt="Vincent" className="h-full w-full object-cover" />
+                  <div className="relative h-48 w-48 rounded-full bg-gradient-to-br from-orange-500 to-orange-300 overflow-hidden dark:from-orange-600 dark:to-orange-400">
+                    <Image src="/headshot.jpg" alt="Vincent" fill className="object-cover" sizes="192px" />
                   </div>
                   <p className="mt-4 text-sm italic text-gray-600 dark:text-zinc-400">
-                    "I am someone who shaped by fire and driven by a dream." - Vincent
+                    &ldquo;I am someone who shaped by fire and driven by a dream.&rdquo; - Vincent
                   </p>
                 </Card>
               </div>
